@@ -1,21 +1,31 @@
-<<<<<<< HEAD
-# React + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple React app that converts between currencies using live exchange rates.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React (Vite)
+- Tailwind CSS
+- Custom React Hook for fetching data
+- Currency API by fawazahmed0 (free, no API key needed)
 
-## React Compiler
+## How It Works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. User enters an amount and picks a "From" and "To" currency from dropdowns.
+2. A custom hook (`useCurrencyInfo`) fetches live exchange rates for the selected "From" currency from the API.
+3. The dropdown options are generated dynamically from the API response, so all available currencies show up automatically.
+4. On clicking "Convert", the amount is multiplied by the exchange rate to get the converted value.
+5. A "Swap" button lets the user flip the From/To currencies and their amounts instantly.
 
-## Expanding the Oxlint configuration
+## What I Built
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
-=======
-# Currency-Converter
-Convert the Rates of one currency to other with Updated Catalogs. 
->>>>>>> 0a6d9194484ab0ae625c8695b7cf6c7f3158f973
+- **`useCurrencyInfo.js`** — a custom hook that fetches and returns live rates for any given currency.
+- **`Inputbox.jsx`** — a reusable component with an amount field and a currency dropdown, used twice (once for "From", once for "To").
+- **`App.jsx`** — holds all the state (amount, from, to, converted amount) and connects everything together.
+
+## Features
+
+- Live exchange rates, always up to date
+- Dynamic currency list (not hardcoded)
+- Swap currencies in one click
+- Clean, responsive UI with Tailwind
